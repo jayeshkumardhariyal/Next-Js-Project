@@ -7,7 +7,7 @@ const ai = new GoogleGenAI({
 
 export default async function generateTextAction(prompt:string): Promise<string> {
     const interaction=await ai.interactions.create({
-        model:"gemini-3.5-flash",
+        model:"gemini-3-flash-preview",
         input:prompt
         })
     return interaction.output_text || "No output generated"

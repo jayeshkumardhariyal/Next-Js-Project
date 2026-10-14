@@ -2,6 +2,7 @@
 import Image from "next/image";
 import generateTextAction from "@/app/actions/ai.actions";
 import { useState } from "react";
+import ReactMarkdown from "react-markdown"
 
 export default function Home() {
   const [prompt,setPrompt]=useState<string>("");
@@ -14,12 +15,12 @@ export default function Home() {
   }
   
   return (
-    <main className="flex w-screen h-screen flex-col items-center justify-between px-24 py-6">
+    <main className="flex w-screen h-screen flex-col  items-center overflow-auto justify-between px-24 py-6 pb-16">
       {
         output && (
-          <div>
+          <div className="pb-16">
             <h1 className="text-2xl font-bold mb-4"> AI Response: </h1>
-            <p className="text-lg">{output}</p>
+             <ReactMarkdown>{output}</ReactMarkdown>
           </div>
         )
       }
